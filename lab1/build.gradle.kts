@@ -54,5 +54,6 @@ dependencyCheck {
     formats = listOf("HTML", "JSON")
     nvd {
         apiKey = System.getenv("NVD_API_KEY")
+        validForHours = 24
     }
 }
