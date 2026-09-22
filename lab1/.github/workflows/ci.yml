@@ -28,9 +28,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.gradle/dependency-check-data
-          key: dependency-check-data-${{ runner.os }}-v10.0.4
+          key: dependency-check-data-${{ runner.os }}-v12-12.2.2
           restore-keys: |
-            dependency-check-data-${{ runner.os }}-
+            dependency-check-data-${{ runner.os }}-v12-
 
       - name: Run tests
         run: ./gradlew test

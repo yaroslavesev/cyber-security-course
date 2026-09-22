@@ -3,12 +3,14 @@ plugins {
     id("org.springframework.boot") version "4.1.1"
     id("io.spring.dependency-management") version "1.1.7"
     id("com.github.spotbugs") version "6.0.26"
-    id("org.owasp.dependencycheck") version "10.0.4"
+    id("org.owasp.dependencycheck") version "12.2.2"
 }
 
 group = "org.example"
 version = "0.0.1-SNAPSHOT"
 description = "lab1"
+
+extra["tomcat.version"] = "11.0.25"
 
 java {
     toolchain {
@@ -52,6 +54,7 @@ tasks.withType<com.github.spotbugs.snom.SpotBugsTask> {
 dependencyCheck {
     failBuildOnCVSS = 7.0f
     formats = listOf("HTML", "JSON")
+    analyzers.ossIndex.enabled = false
     nvd {
         apiKey = System.getenv("NVD_API_KEY")
         validForHours = 24
